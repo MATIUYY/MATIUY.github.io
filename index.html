@@ -4,14 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Torneo Épico</title>
+  <link rel="icon" href="icono.png">
+  <audio src="Garena Free Fire - World Cup 2018 Update  OST ( Theme Song ).mp3" autoplay loop></audio>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Bebas Neue', sans-serif;
@@ -29,7 +27,6 @@
       animation: flotar 4s ease-in-out infinite alternate;
       z-index: -1;
     }
-
     .izq.arriba { left: 0; top: 20%; }
     .izq.abajo  { left: 0; bottom: 20%; }
     .der.arriba { right: 0; top: 20%; }
@@ -74,7 +71,6 @@
       to { opacity: 1; transform: translateY(-10px); }
     }
 
-    /* 🎯 ESTILO COUNTDOWN */
     #countdown {
       font-size: 2rem;
       margin-top: 20px;
@@ -95,11 +91,22 @@
       color: white;
       cursor: pointer;
       transition: 0.3s;
+      text-decoration: none;
+      display: inline-block;
     }
-
     .btn:hover {
       transform: scale(1.1);
       box-shadow: 0 0 20px #ff0080;
+    }
+
+    .btn-videos {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      margin: 0;
+      padding: 12px 25px;
+      font-size: 1rem;
+      background: linear-gradient(45deg, #00ffff, #0080ff);
     }
 
     section {
@@ -145,20 +152,23 @@
   </style>
 </head>
 <body>
-  <!-- 🔥 2 imágenes por cada lado 🔥 -->
+  <!-- 🎵 Audio de fondo -->
+  <audio id="musica" src="musica.mp3" autoplay loop muted></audio>
+
   <img src="heaven.clan.png" alt="Decoración izquierda arriba" class="decoracion izq arriba">
   <img src="jax.clan.png" alt="Decoración izquierda abajo" class="decoracion izq abajo">
   <img src="top.clan.png" alt="Decoración derecha arriba" class="decoracion der arriba">
   <img src="oh.8hidalgo.png" alt="Decoración derecha abajo" class="decoracion der abajo">
 
   <header>
+    <a href="videos.html" class="btn btn-videos">📹 Ver Videos</a>
+
     <h1>🔥 Torneo Épico 2025 🔥</h1>
     <p>Demuestra tus habilidades y conviértete en el campeón</p>
 
-    <!-- ⏳ CUENTA REGRESIVA -->
     <div id="countdown">Cargando cuenta regresiva...</div>
 
-    <button class="btn" onclick="scrollToInfo()">TOCA PARA VER LA info</button>
+    <button class="btn" onclick="scrollToInfo()">TOCA PARA VER LA INFO</button>
     <a href="reglas.html" class="btn">VER REGLAS</a>
   </header>
 
@@ -166,31 +176,26 @@
     <h2>Detalles del Torneo</h2>
     <div class="info">
       <p>
-        📅 Fecha: 15 de Octubre 2025 <br>
-        📍 Lugar: Arena Virtual <br>
+        📍 Lugar: Aleatoria <br>
         🏆 Premio increíble para el único ganador y representar a su clan <br><br>
         Dile a tu líder del clan que te una al torneo.  
         Solo pueden entrar 8 jugadores de cada clan.  
         <br><br>
         ¡Listo para brillar!
       </p>
-      <br>
-      <br>
-      <br>
+      <br><br><br>
       <p>
         Va a tener varias fases: primero sería una fase de grupos,
         ahí se jugarían 7 rondas por grupo después pasan a octavos,
         donde se jugarían 7 rondas luego vienen las semifinales
         con 8 rondas y ya de ahí los que pasen van a la final.  
-        El que gane todo se lleva 7000 diamante y el segundo lugar de 500 diamantes 
+        El que gane todo se lleva 7000 diamantes y el segundo lugar 500 diamantes.  
         Si un jugador no responde o no participa, su grupo se gana automáticamente 1 punto 
         (pero solo ese grupo, no los demás).
       </p>
-      <br>
-      <br>
-      <br>
+      <br><br><br>
       <p>
-        Ojo este torneo es para poner a prueba si me a quedado bien el torneo y hacer dinamicas mas grande de 17,000 diamante incluso de 20 etc
+        ⚡ Este torneo es una prueba para dinámicas más grandes de 17,000 o incluso 20,000 diamantes.  
       </p>
     </div>
   </section>
@@ -204,7 +209,6 @@
       document.getElementById("info").scrollIntoView({ behavior: "smooth" });
     }
 
-    // 🎯 COUNTDOWN
     const countdown = document.getElementById("countdown");
     const targetDate = new Date("December 2, 2025 00:00:00").getTime();
 
@@ -224,6 +228,11 @@
 
       countdown.innerHTML = `⏳ Faltan ${days}d ${hours}h ${minutes}m ${seconds}s`;
     }, 1000);
+
+    document.addEventListener("click", () => {
+      const musica = document.getElementById("musica");
+      musica.muted = false;
+    }, { once: true });
   </script>
 </body>
 </html>
