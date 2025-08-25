@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videos del Creador - Torneo Épico</title>
+  <link rel="icon" href="icono.ico">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Bebas Neue', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 50px 20px;
+      background: rgba(0,0,0,0.5);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff0080; }
+      to   { text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffea; }
+    }
+
+    .btn {
+      margin: 20px;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      background: linear-gradient(45deg, #ff0080, #7928ca);
+      border: none;
+      border-radius: 50px;
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #ff0080;
+    }
+
+    section {
+      padding: 50px 20px;
+    }
+
+    .video-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 500px;
+      height: 280px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+    }
+
+    footer {
+      background: #111;
+      padding: 20px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+<audio src="Garena Free Fire - World Cup 2018 Update  OST ( Theme Song ).mp3" autoplay loop></audio>
+  <header>
+    <h1>🎥 Videos del Creador</h1>
+    <a href="index.html" class="btn">⬅ Volver al Inicio</a>
+  </header>
+
+  <section>
+    <h2>videos en mi canal de Matiu (proximamanete)</h2>
+    <p>Mira los videos oficiales del torneo</p>
+    <br><br>
+
+    <div class="video-container">
+      <iframe src="video.polus.mp4" 
+        title="Video 1" frameborder="0" allowfullscreen></iframe>
+
+      <iframe src="" 
+        title="Video 2" frameborder="0" allowfullscreen></iframe>
+
+      <iframe src="" 
+        title="Video 3" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <footer>
+    2025 Torneo Épico - MATIU (creador de los eventos)
+  </footer>
+
+</body>
+</html>
