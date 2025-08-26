@@ -6,9 +6,9 @@
   <title>Torneo Épico</title>
   <link rel="icon" href="icono.png">
   <audio src="Garena Free Fire - World Cup 2018 Update  OST ( Theme Song ).mp3" autoplay loop></audio>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
@@ -20,6 +20,7 @@
       position: relative;
     }
 
+    /* Imágenes decorativas flotantes */
     .decoracion {
       position: fixed;
       width: 150px;
@@ -37,6 +38,7 @@
       to   { transform: translateY(-20px); }
     }
 
+    /* Header principal */
     header {
       height: 100vh;
       display: flex;
@@ -71,6 +73,7 @@
       to { opacity: 1; transform: translateY(-10px); }
     }
 
+    /* Cuenta regresiva */
     #countdown {
       font-size: 2rem;
       margin-top: 20px;
@@ -81,6 +84,7 @@
       animation: glow 2s infinite alternate;
     }
 
+    /* Botones generales */
     .btn {
       margin-top: 30px;
       padding: 15px 40px;
@@ -99,6 +103,7 @@
       box-shadow: 0 0 20px #ff0080;
     }
 
+    /* Botón VIDEOS (arriba derecha) */
     .btn-videos {
       position: absolute;
       top: 20px;
@@ -109,6 +114,18 @@
       background: linear-gradient(45deg, #00ffff, #0080ff);
     }
 
+    /* Botón CRÉDITOS (arriba izquierda) */
+    .btn-creditos {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      margin: 0;
+      padding: 12px 25px;
+      font-size: 1rem;
+      background: linear-gradient(45deg, #ff5733, #c70039);
+    }
+
+    /* Sección info */
     section {
       padding: 80px 20px;
     }
@@ -126,12 +143,14 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* Footer */
     footer {
       background: #111;
       padding: 20px;
       font-size: 1rem;
     }
 
+    /* 📱 Responsive */
     @media (max-width: 480px) {
       header h1 { font-size: 2.5rem; }
       header p { font-size: 1rem; }
@@ -161,10 +180,10 @@
   <img src="oh.8hidalgo.png" alt="Decoración derecha abajo" class="decoracion der abajo">
 
   <header>
-    <a href="videos.html" class="btn btn-videos">📹 Ver Videos</a>
-
+    <a href="creditos/credito.html" class="btn btn-creditos">👑 CRÉDITOS</a>
     <h1>🔥 Torneo Épico 2025 🔥</h1>
     <p>Demuestra tus habilidades y conviértete en el campeón</p>
+    <a href="videos.html" class="btn btn-videos">📹 Ver Videos</a>
 
     <div id="countdown">Cargando cuenta regresiva...</div>
 
