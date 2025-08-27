@@ -3,35 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Torneo Épico</title>
+  <title>Torneo Épico 2025</title>
   <link rel="icon" href="icono.png">
   <audio src="Garena Free Fire - World Cup 2018 Update  OST ( Theme Song ).mp3" autoplay loop></audio>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap');
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Bebas Neue', sans-serif;
+      font-family: 'Roboto', sans-serif;
       background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      color: white;
+      color: #fff;
       overflow-x: hidden;
       text-align: center;
-      position: relative;
     }
 
-    /* Imágenes decorativas flotantes */
+    /* ✨ Efecto de partículas de fondo */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://i.ibb.co/7WZR9Wz/particles.gif') center/cover no-repeat;
+      opacity: 0.1;
+      z-index: -2;
+    }
+
+    /* Imágenes decorativas */
     .decoracion {
       position: fixed;
-      width: 150px;
-      opacity: 0.7;
+      width: 140px;
+      opacity: 0.6;
       animation: flotar 4s ease-in-out infinite alternate;
       z-index: -1;
+      filter: drop-shadow(0 0 15px rgba(255,255,255,0.5));
     }
-    .izq.arriba { left: 0; top: 20%; }
-    .izq.abajo  { left: 0; bottom: 20%; }
-    .der.arriba { right: 0; top: 20%; }
-    .der.abajo  { right: 0; bottom: 20%; }
+    .izq.arriba { left: 0; top: 15%; }
+    .izq.abajo  { left: 0; bottom: 15%; }
+    .der.arriba { right: 0; top: 15%; }
+    .der.abajo  { right: 0; bottom: 15%; }
 
     @keyframes flotar {
       from { transform: translateY(0); }
@@ -45,182 +57,185 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      animation: fadeIn 2s ease-in-out;
       position: relative;
-      z-index: 1;
+      padding: 20px;
     }
 
     header h1 {
-      font-size: 5rem;
-      letter-spacing: 5px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4.5rem;
+      letter-spacing: 4px;
       text-transform: uppercase;
+      background: linear-gradient(90deg, #ff0080, #00ffff, #7928ca);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       animation: glow 2s infinite alternate;
     }
 
     @keyframes glow {
-      from { text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff0080, 0 0 30px #ff0080; }
-      to   { text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffea, 0 0 60px #00ffff; }
+      from { text-shadow: 0 0 15px #ff0080; }
+      to   { text-shadow: 0 0 25px #00ffff; }
     }
 
     header p {
-      font-size: 1.5rem;
-      margin-top: 20px;
-      opacity: 0;
-      animation: slideUp 2s forwards 1s;
-    }
-
-    @keyframes slideUp {
-      to { opacity: 1; transform: translateY(-10px); }
+      font-size: 1.3rem;
+      margin-top: 15px;
+      animation: fadeInUp 2s ease-in-out;
     }
 
     /* Cuenta regresiva */
     #countdown {
-      font-size: 2rem;
-      margin-top: 20px;
-      background: rgba(255,255,255,0.1);
+      font-size: 1.8rem;
+      margin-top: 25px;
+      background: rgba(0,0,0,0.4);
       padding: 15px 30px;
-      border-radius: 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 0 10px rgba(255,255,255,0.3);
       display: inline-block;
-      animation: glow 2s infinite alternate;
     }
 
-    /* Botones generales */
+    /* Botones */
     .btn {
-      margin-top: 30px;
-      padding: 15px 40px;
-      font-size: 1.2rem;
-      background: linear-gradient(45deg, #ff0080, #7928ca);
+      margin-top: 25px;
+      padding: 14px 35px;
+      font-size: 1.1rem;
+      font-weight: 600;
       border: none;
       border-radius: 50px;
       color: white;
       cursor: pointer;
-      transition: 0.3s;
       text-decoration: none;
       display: inline-block;
-    }
-    .btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 20px #ff0080;
+      transition: 0.3s;
     }
 
-    /* Botón VIDEOS (arriba derecha) */
+    .btn:hover { transform: translateY(-3px) scale(1.05); }
+
+    .btn-main {
+      background: linear-gradient(45deg, #ff0080, #7928ca);
+      box-shadow: 0 0 15px rgba(255,0,128,0.6);
+    }
+
     .btn-videos {
       position: absolute;
-      top: 20px;
-      right: 20px;
-      margin: 0;
-      padding: 12px 25px;
-      font-size: 1rem;
+      top: 20px; right: 20px;
       background: linear-gradient(45deg, #00ffff, #0080ff);
+      padding: 10px 22px;
+      font-size: 0.95rem;
     }
 
-    /* Botón CRÉDITOS (arriba izquierda) */
     .btn-creditos {
       position: absolute;
-      top: 20px;
-      left: 20px;
-      margin: 0;
-      padding: 12px 25px;
-      font-size: 1rem;
+      top: 20px; left: 20px;
       background: linear-gradient(45deg, #ff5733, #c70039);
+      padding: 10px 22px;
+      font-size: 0.95rem;
     }
 
     /* Sección info */
     section {
       padding: 80px 20px;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+    }
+
+    section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #00ffff;
+      text-shadow: 0 0 15px #00ffff;
     }
 
     .info {
       max-width: 800px;
       margin: auto;
-      font-size: 1.3rem;
-      line-height: 1.8;
-      animation: fadeInUp 2s ease-in-out;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(50px); }
-      to   { opacity: 1; transform: translateY(0); }
+      font-size: 1.1rem;
+      line-height: 1.7;
+      text-align: justify;
     }
 
     /* Footer */
     footer {
-      background: #111;
-      padding: 20px;
-      font-size: 1rem;
+      background: #0d0d0d;
+      padding: 18px;
+      font-size: 0.9rem;
+      color: #bbb;
+      border-top: 1px solid #222;
     }
 
-    /* 📱 Responsive */
+    /* Animación fade */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
     @media (max-width: 480px) {
-      header h1 { font-size: 2.5rem; }
+      header h1 { font-size: 2.8rem; }
       header p { font-size: 1rem; }
-      #countdown { font-size: 1.2rem; padding: 10px 15px; }
-      .btn { padding: 10px 20px; font-size: 1rem; }
-      .info { font-size: 1rem; padding: 10px; }
-      .decoracion { width: 80px; opacity: 0.5; }
+      #countdown { font-size: 1rem; padding: 10px 15px; }
+      .btn { padding: 10px 18px; font-size: 0.9rem; }
+      .decoracion { width: 90px; }
     }
-
     @media (min-width: 481px) and (max-width: 768px) {
       header h1 { font-size: 3.5rem; }
-      header p { font-size: 1.2rem; }
-      #countdown { font-size: 1.5rem; }
-      .btn { padding: 12px 30px; font-size: 1.1rem; }
-      .info { font-size: 1.1rem; max-width: 90%; }
+      header p { font-size: 1.1rem; }
+      #countdown { font-size: 1.3rem; }
+      .btn { padding: 12px 25px; font-size: 1rem; }
       .decoracion { width: 120px; }
     }
   </style>
 </head>
 <body>
-  <!-- 🎵 Audio de fondo -->
-  <audio id="musica" src="musica.mp3" autoplay loop muted></audio>
+  <!-- 🎵 Música de fondo -->
+  <audio id="musica" src="Garena Free Fire - World Cup 2018 Update  OST ( Theme Song ).mp3" autoplay loop muted></audio>
 
+  <!-- ✨ Decoraciones -->
   <img src="heaven.clan.png" alt="Decoración izquierda arriba" class="decoracion izq arriba">
   <img src="jax.clan.png" alt="Decoración izquierda abajo" class="decoracion izq abajo">
   <img src="top.clan.png" alt="Decoración derecha arriba" class="decoracion der arriba">
   <img src="oh.8hidalgo.png" alt="Decoración derecha abajo" class="decoracion der abajo">
 
+  <!-- Header -->
   <header>
-    <a href="credito.html" class="btn btn-creditos">👑 CRÉDITOS</a>
+    <a href="creditos/credito.html" class="btn btn-creditos">👑 Créditos</a>
+    <a href="videos.html" class="btn btn-videos">📹 Videos</a>
+
     <h1>🔥 Torneo Épico 2025 🔥</h1>
     <p>Demuestra tus habilidades y conviértete en el campeón</p>
-    <a href="videos.html" class="btn btn-videos">📹 Ver Videos</a>
 
-    <div id="countdown">Cargando cuenta regresiva...</div>
+    <div id="countdown">⏳ Cargando cuenta regresiva...</div>
 
-    <button class="btn" onclick="scrollToInfo()">TOCA PARA VER LA INFO</button>
-    <a href="reglas.html" class="btn">VER REGLAS</a>
+    <button class="btn btn-main" onclick="scrollToInfo()">Ver Información</button>
+    <a href="reglas.html" class="btn btn-main">Ver Reglas</a>
   </header>
 
+  <!-- Info -->
   <section id="info">
     <h2>Detalles del Torneo</h2>
     <div class="info">
       <p>
         📍 Lugar: Aleatoria <br>
-        🏆 Premio increíble para el único ganador y representar a su clan <br><br>
-        Dile a tu líder del clan que te una al torneo.  
-        Solo pueden entrar 8 jugadores de cada clan.  
-        <br><br>
-        ¡Listo para brillar!
+        🏆 Premio: un increíble botín para el campeón que represente a su clan.  
+        Cada clan puede inscribir hasta 8 jugadores. ¡Demuestra tu poder!
       </p>
-      <br><br><br>
+      <br>
       <p>
-        Va a tener varias fases: primero sería una fase de grupos,
-        ahí se jugarían 7 rondas por grupo después pasan a octavos,
-        donde se jugarían 7 rondas luego vienen las semifinales
-        con 8 rondas y ya de ahí los que pasen van a la final.  
-        El que gane todo se lleva 7000 diamantes y el segundo lugar 500 diamantes.  
-        Si un jugador no responde o no participa, su grupo se gana automáticamente 1 punto 
-        (pero solo ese grupo, no los demás).
+        🔥 Formato: fase de grupos con 7 rondas, luego octavos (7 rondas), semifinales (8 rondas) y gran final.  
+        🥇 1er lugar: 7000 diamantes  
+        🥈 2do lugar: 500 diamantes  
+        ⚠️ Si un jugador no responde o no participa, su grupo obtiene 1 punto automático.
       </p>
-      <br><br><br>
+      <br>
       <p>
-        ⚡ Este torneo es una prueba para dinámicas más grandes de 17,000 o incluso 20,000 diamantes.  
+        ⚡ Este torneo será el inicio de dinámicas aún más grandes: hasta 17,000 o 20,000 diamantes en juego.  
       </p>
     </div>
   </section>
 
   <footer>
-    2025 Torneo Épico - MATIU (creador de los eventos)
+    © 2025 Torneo Épico — Creado por MATIU
   </footer>
 
   <script>
@@ -249,8 +264,7 @@
     }, 1000);
 
     document.addEventListener("click", () => {
-      const musica = document.getElementById("musica");
-      musica.muted = false;
+      document.getElementById("musica").muted = false;
     }, { once: true });
   </script>
 </body>
