@@ -1,276 +1,289 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Torneo Épico 2025</title>
-  <link rel="icon" href="icono.png">
-  <audio src="Garena Free Fire - World Cup 2018 Update  OST ( Theme Song ).mp3" autoplay loop></audio>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Torneo Épico 2025</title>
+<link rel="icon" href="icono.png">
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap');
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap');
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
 
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      color: #fff;
-      overflow-x: hidden;
-      text-align: center;
-    }
+/* BODY */
+body {
+  font-family:'Roboto', sans-serif;
+  background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+  color:#fff;
+  overflow-x:hidden;
+  text-align:center;
+}
 
-    /* ✨ Efecto de partículas de fondo */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: url('https://i.ibb.co/7WZR9Wz/particles.gif') center/cover no-repeat;
-      opacity: 0.1;
-      z-index: -2;
-    }
+/* LOADER */
+#loader {
+  position:fixed; top:0; left:0;
+  width:100%; height:100%;
+  background:#0f0c29;
+  display:flex; justify-content:center; align-items:center; flex-direction:column;
+  z-index:9999;
+  font-size:1.5rem;
+}
+.spinner {
+  border:8px solid rgba(255,255,255,0.2);
+  border-top:8px solid #00ffff;
+  border-radius:50%;
+  width:80px; height:80px;
+  animation: spin 1s linear infinite;
+  margin-bottom:20px;
+}
+@keyframes spin {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
 
-    /* Imágenes decorativas */
-    .decoracion {
-      position: fixed;
-      width: 140px;
-      opacity: 0.6;
-      animation: flotar 4s ease-in-out infinite alternate;
-      z-index: -1;
-      filter: drop-shadow(0 0 15px rgba(255,255,255,0.5));
-    }
-    .izq.arriba { left: 0; top: 15%; }
-    .izq.abajo  { left: 0; bottom: 15%; }
-    .der.arriba { right: 0; top: 15%; }
-    .der.abajo  { right: 0; bottom: 15%; }
+/* COOKIES */
+#cookies {
+  position:fixed; bottom:0; left:0;
+  width:100%; background:rgba(0,0,0,0.9);
+  padding:15px; text-align:center; font-size:0.95rem;
+  color:white; display:none; z-index:10000;
+}
+#cookies button {
+  margin-left:15px; padding:8px 15px;
+  border:none;
+  background: linear-gradient(45deg,#00ffff,#0080ff);
+  color:white; font-weight:bold; border-radius:5px;
+  cursor:pointer; transition:0.3s;
+}
+#cookies button:hover { transform: scale(1.05); }
 
-    @keyframes flotar {
-      from { transform: translateY(0); }
-      to   { transform: translateY(-20px); }
-    }
+/* FONDO ANIMADO */
+body::before {
+  content:"";
+  position:fixed; top:0; left:0;
+  width:100%; height:100%;
+  background:url('https://i.ibb.co/7WZR9Wz/particles.gif') center/cover no-repeat;
+  opacity:0.1; z-index:-2;
+}
 
-    /* Header principal */
-    header {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      position: relative;
-      padding: 20px;
-    }
+/* DECORACIONES */
+.decoracion {
+  position:fixed; width:140px; opacity:0.6;
+  animation: flotar 4s ease-in-out infinite alternate;
+  z-index:-1; filter: drop-shadow(0 0 15px rgba(255,255,255,0.5));
+}
+.izq.arriba { left:0; top:15%; }
+.izq.abajo { left:0; bottom:15%; }
+.der.arriba { right:0; top:15%; }
+.der.abajo { right:0; bottom:15%; }
+@keyframes flotar { from{transform:translateY(0);} to{transform:translateY(-20px);} }
 
-    header h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 4.5rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      background: linear-gradient(90deg, #ff0080, #00ffff, #7928ca);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: glow 2s infinite alternate;
-    }
+/* HEADER */
+header {
+  height:100vh;
+  display:flex; flex-direction:column;
+  justify-content:center; align-items:center;
+  position:relative; padding:20px;
+}
+header h1 {
+  font-family:'Bebas Neue'; font-size:4.5rem;
+  letter-spacing:4px; text-transform:uppercase;
+  background: linear-gradient(90deg,#ff0080,#00ffff,#7928ca);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  animation: glow 2s infinite alternate;
+}
+@keyframes glow { from{text-shadow:0 0 15px #ff0080;} to{text-shadow:0 0 25px #00ffff;} }
+header p { font-size:1.3rem; margin-top:15px; animation: fadeInUp 2s ease-in-out; }
 
-    @keyframes glow {
-      from { text-shadow: 0 0 15px #ff0080; }
-      to   { text-shadow: 0 0 25px #00ffff; }
-    }
+/* CUENTA REGRESIVA */
+#countdown {
+  font-size:1.8rem; margin-top:25px;
+  background:rgba(0,0,0,0.4); padding:15px 30px;
+  border-radius:12px; border:1px solid rgba(255,255,255,0.2);
+  box-shadow:0 0 10px rgba(255,255,255,0.3); display:inline-block;
+}
 
-    header p {
-      font-size: 1.3rem;
-      margin-top: 15px;
-      animation: fadeInUp 2s ease-in-out;
-    }
+/* BOTONES */
+.btn {
+  margin-top:25px; padding:14px 35px;
+  font-size:1.1rem; font-weight:600;
+  border:none; border-radius:50px;
+  color:white; cursor:pointer; text-decoration:none;
+  display:inline-block; transition:0.3s;
+}
+.btn:hover { transform:translateY(-3px) scale(1.05); box-shadow:0 0 20px rgba(0,255,255,0.5); }
 
-    /* Cuenta regresiva */
-    #countdown {
-      font-size: 1.8rem;
-      margin-top: 25px;
-      background: rgba(0,0,0,0.4);
-      padding: 15px 30px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: 0 0 10px rgba(255,255,255,0.3);
-      display: inline-block;
-    }
+.btn-main {
+  background: linear-gradient(45deg,#ff0080,#7928ca);
+  box-shadow:0 0 15px rgba(255,0,128,0.6);
+}
+.btn-videos, .btn-creditos {
+  padding:10px 22px; font-size:0.95rem; border-radius:30px;
+  transition:0.3s; font-weight:bold;
+}
+.btn-videos {
+  position:absolute; top:20px; right:20px;
+  background:linear-gradient(45deg,#00ffff,#0080ff);
+  box-shadow:0 0 12px #00ffff;
+}
+.btn-videos:hover { box-shadow:0 0 20px #00ffff; }
+.btn-creditos {
+  position:absolute; top:20px; left:20px;
+  background:linear-gradient(45deg,#ff5733,#c70039);
+  box-shadow:0 0 12px #ff5733;
+}
+.btn-creditos:hover { box-shadow:0 0 20px #ff5733; }
 
-    /* Botones */
-    .btn {
-      margin-top: 25px;
-      padding: 14px 35px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 50px;
-      color: white;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      transition: 0.3s;
-    }
+/* SECCIONES */
+section {
+  padding:80px 20px;
+  background: rgba(0,0,0,0.6); backdrop-filter:blur(4px);
+  transition:all 0.5s;
+}
+section h2 {
+  font-size:2.5rem; margin-bottom:30px;
+  color:#00ffff; text-shadow:0 0 15px #00ffff;
+}
+.info { max-width:900px; margin:auto; font-size:1.1rem; line-height:1.7; text-align:justify; }
 
-    .btn:hover { transform: translateY(-3px) scale(1.05); }
+/* REGLAS */
+.rules { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; margin-top:40px; }
+.rule-card {
+  background: rgba(255,255,255,0.05); border:1px solid rgba(0,255,255,0.3);
+  border-radius:12px; padding:20px; transition:0.4s; cursor:pointer;
+}
+.rule-card:hover { transform:translateY(-5px) scale(1.03); box-shadow:0 0 25px #00ffff; }
+.rule-card h3 { margin-bottom:10px; color:#00ffff; }
 
-    .btn-main {
-      background: linear-gradient(45deg, #ff0080, #7928ca);
-      box-shadow: 0 0 15px rgba(255,0,128,0.6);
-    }
+/* FOOTER */
+footer { background:#0d0d0d; padding:18px; font-size:0.9rem; color:#bbb; border-top:1px solid #222; margin-top:50px; }
 
-    .btn-videos {
-      position: absolute;
-      top: 20px; right: 20px;
-      background: linear-gradient(45deg, #00ffff, #0080ff);
-      padding: 10px 22px;
-      font-size: 0.95rem;
-    }
+/* ANIMACIONES */
+@keyframes fadeInUp { from{opacity:0; transform:translateY(40px);} to{opacity:1; transform:translateY(0);} }
 
-    .btn-creditos {
-      position: absolute;
-      top: 20px; left: 20px;
-      background: linear-gradient(45deg, #ff5733, #c70039);
-      padding: 10px 22px;
-      font-size: 0.95rem;
-    }
-
-    /* Sección info */
-    section {
-      padding: 80px 20px;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(4px);
-    }
-
-    section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 30px;
-      color: #00ffff;
-      text-shadow: 0 0 15px #00ffff;
-    }
-
-    .info {
-      max-width: 800px;
-      margin: auto;
-      font-size: 1.1rem;
-      line-height: 1.7;
-      text-align: justify;
-    }
-
-    /* Footer */
-    footer {
-      background: #0d0d0d;
-      padding: 18px;
-      font-size: 0.9rem;
-      color: #bbb;
-      border-top: 1px solid #222;
-    }
-
-    /* Animación fade */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Responsive */
-    @media (max-width: 480px) {
-      header h1 { font-size: 2.8rem; }
-      header p { font-size: 1rem; }
-      #countdown { font-size: 1rem; padding: 10px 15px; }
-      .btn { padding: 10px 18px; font-size: 0.9rem; }
-      .decoracion { width: 90px; }
-    }
-    @media (min-width: 481px) and (max-width: 768px) {
-      header h1 { font-size: 3.5rem; }
-      header p { font-size: 1.1rem; }
-      #countdown { font-size: 1.3rem; }
-      .btn { padding: 12px 25px; font-size: 1rem; }
-      .decoracion { width: 120px; }
-    }
-  </style>
+/* RESPONSIVE */
+@media(max-width:480px){
+  header h1{font-size:2.8rem;}
+  header p{font-size:1rem;}
+  #countdown{font-size:1rem;padding:10px 15px;}
+  .btn{padding:10px 18px;font-size:0.9rem;}
+  .decoracion{width:90px;}
+}
+@media(min-width:481px) and (max-width:768px){
+  header h1{font-size:3.5rem;}
+  header p{font-size:1.1rem;}
+  #countdown{font-size:1.3rem;}
+  .btn{padding:12px 25px;font-size:1rem;}
+  .decoracion{width:120px;}
+}
+</style>
 </head>
 <body>
-  <!-- 🎵 Música de fondo -->
-  <audio id="musica" src="Garena Free Fire - World Cup 2018 Update  OST ( Theme Song ).mp3" autoplay loop muted></audio>
 
-  <!-- ✨ Decoraciones -->
-  <img src="heaven.clan.png" alt="Decoración izquierda arriba" class="decoracion izq arriba">
-  <img src="jax.clan.png" alt="Decoración izquierda abajo" class="decoracion izq abajo">
-  <img src="top.clan.png" alt="Decoración derecha arriba" class="decoracion der arriba">
-  <img src="oh.8hidalgo.png" alt="Decoración derecha abajo" class="decoracion der abajo">
+<!-- Loader -->
+<div id="loader">
+  <div class="spinner"></div>
+  <p>Cargando Torneo Épico 2025...</p>
+</div>
 
-  <!-- Header -->
-  <header>
-    <a href="credito.html" class="btn btn-creditos">👑 Créditos</a>
-    <a href="videos.html" class="btn btn-videos">📹 Videos</a>
+<!-- Cookies -->
+<div id="cookies">
+  🍪 Usamos cookies para mejorar tu experiencia en el Torneo Épico 2025.
+  <button onclick="aceptarCookies()">Aceptar</button>
+</div>
 
-    <h1>🔥 Torneo Épico 2025 🔥</h1>
-    <p>Demuestra tus habilidades y conviértete en el campeón</p>
+<!-- Música -->
+<audio id="musica" src="Garena Free Fire - World Cup 2018 Update OST.mp3" autoplay loop muted></audio>
 
-    <div id="countdown">⏳ Cargando cuenta regresiva...</div>
+<!-- Decoraciones -->
+<img src="heaven.clan.png" class="decoracion izq arriba">
+<img src="jax.clan.png" class="decoracion izq abajo">
+<img src="top.clan.png" class="decoracion der arriba">
+<img src="oh.8hidalgo.png" class="decoracion der abajo">
 
-    <button class="btn btn-main" onclick="scrollToInfo()">Ver Información</button>
-    <a href="reglas.html" class="btn btn-main">Ver Reglas</a>
-  </header>
+<!-- Header -->
+<header>
+  <a href="creditos/credito.html" class="btn btn-creditos">👑 Créditos</a>
+  <a href="videos.html" class="btn btn-videos">📹 Videos</a>
 
-  <!-- Info -->
-  <section id="info">
-    <h2>Detalles del Torneo</h2>
-    <div class="info">
-      <p>
-        📍 Lugar: Aleatoria <br>
-        🏆 Premio: un increíble botín para el campeón que represente a su clan.  
-        Cada clan puede inscribir hasta 8 jugadores. ¡Demuestra tu poder!
-      </p>
-      <br>
-      <p>
-        🔥 Formato: fase de grupos con 7 rondas, luego octavos (7 rondas), semifinales (8 rondas) y gran final.  
-        🥇 1er lugar: 7000 diamantes  
-        🥈 2do lugar: 500 diamantes  
-        ⚠️ Si un jugador no responde o no participa, su grupo obtiene 1 punto automático.
-      </p>
-      <br>
-      <p>
-        ⚡ Este torneo será el inicio de dinámicas aún más grandes: hasta 17,000 o 20,000 diamantes en juego.  
-      </p>
+  <h1>🔥 Torneo Épico 2025 🔥</h1>
+  <p>Demuestra tus habilidades y conviértete en el campeón</p>
+
+  <div id="countdown">⏳ Cargando cuenta regresiva...</div>
+
+  <button class="btn btn-main" onclick="scrollToInfo()">Ver Información</button>
+  <a href="reglas.html" class="btn btn-main">Ver Reglas</a>
+</header>
+
+<!-- Info -->
+<section id="info">
+  <h2>Detalles del Torneo</h2>
+  <div class="info">
+    <p>📍 Lugar: Aleatoria <br>🏆 Premio: un increíble botín para el campeón que represente a su clan. Cada clan puede inscribir hasta 8 jugadores. ¡Demuestra tu poder!</p>
+    <br>
+    <p>🔥 Formato: fase de grupos con 7 rondas, luego octavos (7 rondas), semifinales (8 rondas) y gran final. 🥇 1er lugar: 7000 diamantes 🥈 2do lugar: 500 diamantes ⚠️ Si un jugador no responde o no participa, su grupo obtiene 1 punto automático.</p>
+    <br>
+    <p>⚡ Este torneo será el inicio de dinámicas aún más grandes: hasta 17,000 o 20,000 diamantes en juego.</p>
+
+    <!-- Reglas extendidas -->
+    <div class="rules">
+      <div class="rule-card">
+        <h3>🕹️ Participación</h3>
+        <p>Todos los jugadores deben registrarse antes de la fecha límite y confirmar su asistencia al menos 24 horas antes del inicio de su grupo.</p>
+      </div>
+      <div class="rule-card">
+        <h3>📜 Conducta</h3>
+        <p>Se espera un comportamiento respetuoso hacia todos los jugadores y organizadores. Cualquier infracción resultará en la expulsión inmediata del torneo.</p>
+      </div>
+      <div class="rule-card">
+        <h3>🎯 Objetivos</h3>
+        <p>El objetivo principal es ganar puntos por cada ronda y alcanzar la final. Los puntos se calculan automáticamente al finalizar cada partida.</p>
+      </div>
+      <div class="rule-card">
+        <h3>📡 Conexión</h3>
+        <p>Se recomienda jugar con buena conexión. Problemas técnicos pueden afectar la puntuación, pero se evaluarán caso por caso.</p>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    © 2025 Torneo Épico — Creado por MATIU
-  </footer>
+<!-- Footer -->
+<footer>
+  © 2025 Torneo Épico — Creado por MATIU
+</footer>
 
-  <script>
-    function scrollToInfo() {
-      document.getElementById("info").scrollIntoView({ behavior: "smooth" });
+<script>
+function scrollToInfo() { document.getElementById("info").scrollIntoView({behavior:"smooth"}); }
+
+// Cuenta regresiva
+const countdown=document.getElementById("countdown");
+const targetDate=new Date("December 2, 2025 00:00:00").getTime();
+setInterval(()=>{
+  const now=new Date().getTime();
+  const distance=targetDate-now;
+  if(distance<=0){countdown.innerHTML="🎉 ¡El torneo ha comenzado! 🎉";return;}
+  const days=Math.floor(distance/(1000*60*60*24));
+  const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+  const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+  const seconds=Math.floor((distance%(1000*60))/1000);
+  countdown.innerHTML=`⏳ Faltan ${days}d ${hours}h ${minutes}m ${seconds}s`;
+},1000);
+
+// Música
+document.addEventListener("click",()=>{document.getElementById("musica").muted=false;},{once:true});
+
+// Loader y cookies
+window.onload=function(){
+  setTimeout(()=>{
+    document.getElementById("loader").style.display="none";
+    if(localStorage.getItem("cookiesAceptadas")!=="true"){
+      document.getElementById("cookies").style.display="block";
     }
-
-    const countdown = document.getElementById("countdown");
-    const targetDate = new Date("December 2, 2025 00:00:00").getTime();
-
-    setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-
-      if (distance <= 0) {
-        countdown.innerHTML = "🎉 ¡El torneo ha comenzado! 🎉";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      countdown.innerHTML = `⏳ Faltan ${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }, 1000);
-
-    document.addEventListener("click", () => {
-      document.getElementById("musica").muted = false;
-    }, { once: true });
-  </script>
+  },3000);
+};
+function aceptarCookies(){ localStorage.setItem("cookiesAceptadas","true"); document.getElementById("cookies").style.display="none";}
+</script>
 </body>
 </html>
-
-
 
 
 
